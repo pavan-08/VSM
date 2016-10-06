@@ -2,3 +2,4 @@ node_modules/
 js/minified/
 css/style.css.map
 css/style.min.css
+.sass-cache/
