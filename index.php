@@ -8,8 +8,10 @@
 
 	</head>
 	<body>
+	<div class="home-content">
 	<?php
 		include(__DIR__.'/views/home.php');
 	?>
+	</div>
 	</body>
 </html>
