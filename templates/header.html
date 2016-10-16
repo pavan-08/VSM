@@ -1,3 +1,24 @@
 <header>
-	Virtual Stock Market <i class="fa fa-line-chart" aria-hidden="true"></i>
+	<h1>Virtual Stock Market <i class="fa fa-line-chart" aria-hidden="true"></i></h1>
+	<?php
+		if($loggedin) {
+		?>
+
+		<?php
+		} else {
+		?>
+			<div class="login-nav">
+				<span>
+				<label for="login-user">Email or Username</label><br>
+				<input type="text" id="login-user"/>
+				</span>
+				<span>
+				<label for="login-password">Password</label><br>
+				<input type="password" id="login-password"/>
+				</span>
+				<span><br><button>Login</button></span>
+			</div>
+		<?php
+		}
+	?>
 </header>

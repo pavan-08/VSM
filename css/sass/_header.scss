@@ -1,6 +1,48 @@
 header {
-	background-color: rgba(0,0,0,0.3);
-	color: white;
-	font-size: 1.8em;
-	padding: 10px;
+	@extend .translucent;
+	padding: 20px;
+	@media screen and (max-width: 850px) {
+			text-align: center;
+		}
+
+	h1 {
+		margin: 0;
+		display: inline-block;
+		@media screen and (max-width: 850px) {
+			width: 100%;
+		}
+		@media screen and (max-width: 400px) {
+			font-size: 1.7em;
+		}
+		@media screen and (max-width: 350px) {
+			font-size: 1.47em;
+		}
+	}
+
+	.login-nav {
+		float: right;
+		@media screen and (max-width: 850px) {
+			float: none;
+			min-height: 40px;
+		}
+		span {
+			float: left;
+			padding: 0 5px;
+			@media screen and (max-width: 480px) {
+				float: none;
+				width: 100%;
+				display: inline-block;
+			}
+			button{
+				border: 1px solid white;
+				background-color: transparent;
+				color: white;
+				&:hover {
+					background-color: white;
+					color: #0000aa;
+					cursor: pointer;
+				}
+			}
+		}
+	}
 }
