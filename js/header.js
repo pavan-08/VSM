@@ -18,4 +18,7 @@ $(document).ready(function() {
 			$('header .login-nav span .err').css('display', 'inline-block');
 		}
 	});
+	$('header .nav-bar #logout').click(function() {
+		location.assign("../classes/logout.php");
+	});
 });

@@ -1,15 +1,18 @@
 header {
 	@extend .translucent;
-	padding: 20px;
-	@media screen and (max-width: 850px) {
+	padding: 20px 0;
+	@media screen and (max-width: 900px) {
 			text-align: center;
+			padding-bottom:0;
 		}
 
 	h1 {
 		margin: 0;
+		padding-left: 20px;
 		display: inline-block;
-		@media screen and (max-width: 850px) {
+		@media screen and (max-width: 900px) {
 			width: 100%;
+			padding: 0;
 		}
 		@media screen and (max-width: 400px) {
 			font-size: 1.7em;
@@ -21,7 +24,7 @@ header {
 
 	.login-nav {
 		float: right;
-		@media screen and (max-width: 850px) {
+		@media screen and (max-width: 900px) {
 			float: none;
 			min-height: 40px;
 		}
@@ -33,20 +36,119 @@ header {
 				width: 100%;
 				display: inline-block;
 			}
+			p.br {
+				margin: 0;
+				@media screen and (max-width: 480px) {
+					display: none;
+				}
+			}
 			button{
 				border: 1px solid white;
 				background-color: transparent;
 				color: white;
 				&:hover {
 					background-color: white;
-					color: #0000aa;
+					color: $nav-bar-color;
 					cursor: pointer;
+				}
+				@media screen and (max-width: 480px) {
+					margin: 5px 0;
 				}
 			}
 
 			.err {
 				color: red;
 				margin: 0;
+			}
+		}
+	}
+	.nav-bar{
+		float: right;
+		@media screen and (max-width: 900px) {
+			float: none;
+			min-height: 40px;
+			margin-top: 0;
+			padding-top: 5px;
+			width: 100%;
+		}
+		height: $nav-bar-height;
+		margin-top: -20px;
+		ul {
+			list-style: none;
+			margin: 0;
+			float: left;
+			height: 100%;
+			@media screen and (max-width: 900px) {
+				width: 75%;
+				padding-left: 0;
+				height: auto;
+			}
+			li {
+				height: 100%;
+				padding: 0 15px;
+				color: white;
+				display: inline-block;
+				font-weight: bold;
+
+				background-color: transparent;
+				transition: all 0.5s;
+				@media screen and (max-width: 900px) {
+					width: 27%;
+					padding: 0;
+				}
+				p{
+					line-height: $nav-bar-height/2;
+					text-align: center;
+					margin: 0;
+					
+					span {
+						@media screen and (max-width: 550px) {
+							display: none;
+						}
+					}
+					@media screen and (max-width: 550px) {
+						font-size: 2em;
+						line-height: $nav-bar-height;
+					}
+				}
+				&:hover {
+					background-color: white;
+					color: $nav-bar-color;
+					cursor: pointer;
+				}
+			}
+		}
+		span.profile {
+			float: left;
+			padding: 0 15px;
+			text-align: center;
+			@media screen and (max-width: 900px) {
+				padding: 0;
+			}
+			@media screen and (max-width: 600px) {
+				width: 25%;
+			}
+			p {
+				margin: 4px 0;
+				white-space: nowrap;
+ 				overflow: hidden;
+  				text-overflow: ellipsis;
+			}
+			#logout {
+				margin: 0 15px;
+				font-size: 1.05em;
+				border: 1px solid white;
+				background-color: transparent;
+				color: white;
+				transition: all 0.5s;
+				&:hover {
+					background-color: white;
+					color: $nav-bar-color;
+					cursor: pointer;
+				}
+				@media screen and (max-width: 400px) {
+					margin: 0;
+				}
 			}
 		}
 	}

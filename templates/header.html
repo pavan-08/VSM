@@ -3,13 +3,24 @@
 	<?php
 		if($loggedin) {
 		?>
+			<div class="nav-bar">
+				<ul>
+					<li title="Dashboard"><p><i class="fa fa-tachometer"></i><span><br/></span><span class="2">Dashboard</span></p></li><li title="My Shares">
+					<p><i class="fa fa-pie-chart"></i><span><br/></span><span class="2">My Shares</span></p></li><li title="Leaderboard">
+					<p><i class="fa fa-trophy"></i><span><br/></span><span class="2">Leaderboard</span></p></li>
+				</ul>
+				<span class="profile">
+					<p title="<?=$userConfig->user['username']?>"><?=$userConfig->user['username']?></p>
+					<p title="<?=$userConfig->user['money']?>">₹<?=$userConfig->user['money']?></p>
+					<button id="logout">Logout</button>
+				</span>
+			</div>
 
 		<?php
 		} else {
 		?>
 			<div class="login-nav">
-				<span>
-				<label for="login-user">Email or Username</label><br>
+				<span><label for="login-user">Email or Username</label><br>
 				<input type="text" id="login-user"/>
 				</span>
 				<span>
@@ -17,7 +28,7 @@
 				<input type="password" id="login-password"/>
 				</span>
 				<span>
-					<br><button>Login<i class="fa fa-spinner fa-pulse" aria-hidden="true" style="display: none"></i></button>
+					<p class="br"><br/></p><button>Login<i class="fa fa-spinner fa-pulse" aria-hidden="true" style="display: none"></i></button>
 					<p class="err" style="display: none">Invalid credentials.</p>
 				</span>
 			</div>
