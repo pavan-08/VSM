@@ -9,10 +9,11 @@ $(document).ready(function() {
 					$('header .login-nav span button i').css('display', 'none');
 					if(data == 1) {
 						$('header .login-nav span .err').css('display', 'none');
+						location.assign('views/game.php');
 					} else {
 						$('header .login-nav span .err').css('display', 'inline-block');
 					}
-					location.assign('views/game.php');
+					
 				});
 		} else {
 			$('header .login-nav span .err').css('display', 'inline-block');
