@@ -4,9 +4,10 @@ session_start();
 if(!isset($_SESSION['uid']) || !isset($_SESSION['pass'])) {
 	$loggedin = false;
 	header('location: ../index.php');
-
 } else {
 	$loggedin = true;
+	include(__DIR__.'/../classes/userConfig.php');
+	$userConfig = new UserConfig();
 }
 ?>
 <html>
@@ -19,10 +20,17 @@ if(!isset($_SESSION['uid']) || !isset($_SESSION['pass'])) {
 	<body>
 	<?php
 		include(__DIR__.'/../templates/header.html');
-		
+		?>
+		<div class="loader">
+            <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+        <div class="content">
+        </div>
+		<?php
 		include(__DIR__.'/../templates/footer.html');
 	?>
 	<script type="text/javascript" src="../js/minified/footer.min.js"></script>
 	<script type="text/javascript" src="../js/minified/header.min.js"></script>
+	<script type="text/javascript" src="../js/minified/game.min.js"></script>	
 	</body>
 </html>
