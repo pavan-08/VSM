@@ -27,7 +27,8 @@ module.exports = function(grunt){
         uglify: {
             dist: {
                 files: {
-                    'js/minified/footer.min.js' : 'js/footer.js'
+                    'js/minified/footer.min.js' : 'js/footer.js',
+                    'js/minified/header.min.js' : 'js/header.js'
                 }
             }
         },

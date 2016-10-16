@@ -16,7 +16,10 @@
 				<label for="login-password">Password</label><br>
 				<input type="password" id="login-password"/>
 				</span>
-				<span><br><button>Login</button></span>
+				<span>
+					<br><button>Login<i class="fa fa-spinner fa-pulse" aria-hidden="true" style="display: none"></i></button>
+					<p class="err" style="display: none">Invalid credentials.</p>
+				</span>
 			</div>
 		<?php
 		}
