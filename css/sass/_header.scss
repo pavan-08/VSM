@@ -1,12 +1,13 @@
 header {
 	@extend .translucent;
-	padding: 20px;
+	padding: 20px 0;
 	@media screen and (max-width: 850px) {
 			text-align: center;
 		}
 
 	h1 {
 		margin: 0;
+		padding-left: 20px;
 		display: inline-block;
 		@media screen and (max-width: 850px) {
 			width: 100%;
@@ -39,7 +40,7 @@ header {
 				color: white;
 				&:hover {
 					background-color: white;
-					color: #0000aa;
+					color: $nav-bar-color;
 					cursor: pointer;
 				}
 			}
@@ -48,6 +49,51 @@ header {
 				color: red;
 				margin: 0;
 			}
+		}
+	}
+
+
+
+	.nav-bar{
+		float: right;
+		height: $nav-bar-height;
+		margin-top: -20px;
+		ul {
+			list-style: none;
+			margin: 0;
+			float: left;
+			height: 100%;
+			li {
+				height: 100%;
+				padding: 0 15px;
+				color: white;
+				display: inline-block;
+				font-weight: bold;
+				background-color: transparent;
+				transition: all 0.5s;
+				p{
+					line-height: $nav-bar-height;
+					margin: 0;
+				}
+				&:hover {
+					background-color: white;
+					color: $nav-bar-color;
+					cursor: pointer;
+				}
+			}
+		}
+		#logout {
+			float: left;
+			margin: 0 15px;
+			margin-top: 6%;
+			border: 1px solid white;
+			background-color: transparent;
+			color: white;
+			&:hover {
+				background-color: white;
+				color: $nav-bar-color;
+				cursor: pointer;
+				}
 		}
 	}
 }
