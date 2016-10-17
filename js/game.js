@@ -35,25 +35,29 @@ function SetURLParameter(sParam, sValue){
 
 function loadviaAJAX(section) {
     var file = '';
-    var script = '';
+    var script = [];
     $('.content').empty();
     $('.loader').css('display', 'block');
     switch(section) {
         case 'Dashboard':
-            file = '../classes/Dashboard.php';
-            script = '../js/minified/dashboard.min.js';
+            file = '../templates/dashboard.html';
+            document.title = "Dashboard | VSM";
+            script = ['../js/minified/dashboard.min.js', '../js/minified/modal.min.js'];
             break;
         case 'My Shares':
-            file = '../classes/MyShares.php';
-            script = '../js/minified/myshares.min.js';
+            file = '../templates/myshares.html';
+            document.title = "My Shares | VSM";
+            script = ['../js/minified/myshares.min.js'];
             break;
         case 'Leaderboard':
-            file = '../classes/Leaderboard.php';
-            script = '../js/minified/leaderboard.min.js';
+            file = '../templates/leaderboard.html';
+            document.title = "Leaderboard | VSM";
+            script = ['../js/minified/leaderboard.min.js'];
             break;
         default :
-            file = '../classes/Dashboard.php';
-            script = '../js/minified/dashboard.min.js';
+            file = '../templates/dashboard.html';
+            document.title = "Dashboard | VSM";
+            script = ['../js/minified/dashboard.min.js', '../js/minified/modal.min.js'];
             section = "Dashboard";
             break;
     }
@@ -63,13 +67,16 @@ function loadviaAJAX(section) {
         if(xhr.readyState == 4 && xhr.status == 200) {
             $('.content').html(xhr.responseText);
             $('.loader').css('display', 'none');
-            if(script !== '' ) {
-                $.getScript(script)
+            if(script.length !== 0 ) {
+                script.forEach(function(item, index) {
+                    $.getScript(item)
                     .done(function (script, textStatus) {
+                        footerpos();
                     })
                     .fail(function (jqxhr, settings, exception) {
-                        console.error(script + " error");
+                        console.error(item + " error");
                     });
+                });
             }
         }
     };
@@ -79,7 +86,17 @@ function loadviaAJAX(section) {
 
 $(document).ready(function () {
    loadviaAJAX(decodeURI(GetURLParameter('section')));
+   $('header .nav-bar ul li').each(function() {
+        if($(this).find('p').find('span.2').html() === decodeURI(GetURLParameter('section'))) {
+            $('header .nav-bar ul li').removeClass('selected-nav');
+            $(this).addClass('selected-nav');
+        }
+   });
    $('header .nav-bar ul li').on('click', function() {
-           loadviaAJAX($(this).find('p').find('span.2').html());
+            if(!$(this).hasClass('selected-nav')) {
+                $('header .nav-bar ul li').removeClass('selected-nav');
+                $(this).addClass('selected-nav');
+                loadviaAJAX($(this).find('p').find('span.2').html());
+            }
    })
 });
