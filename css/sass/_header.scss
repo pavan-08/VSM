@@ -47,11 +47,12 @@ header {
 					width: 88%;
 				}
 			}
-			button{
+			.button{
 				border: 1px solid white;
 				background-color: transparent;
 				color: white;
-				&:hover {
+				transition: all 0.5s;
+				&:hover, &:focus, &:active {
 					background-color: white;
 					color: $nav-bar-color;
 					cursor: pointer;
@@ -94,6 +95,7 @@ header {
 
 				background-color: transparent;
 				transition: all 0.5s;
+
 				@media screen and (max-width: 900px) {
 					width: 27%;
 					padding: 0;
@@ -113,11 +115,12 @@ header {
 						line-height: $nav-bar-height;
 					}
 				}
-				&:hover {
+				&:hover, &:focus, &:active, &.selected-nav {
 					background-color: white;
 					color: $nav-bar-color;
 					cursor: pointer;
 				}
+
 			}
 		}
 		span.profile {
@@ -143,12 +146,12 @@ header {
 				background-color: transparent;
 				color: white;
 				transition: all 0.5s;
-				&:hover {
+				&:hover , &:focus, &:active {
 					background-color: white;
 					color: $nav-bar-color;
 					cursor: pointer;
 				}
-				@media screen and (max-width: 400px) {
+				@media screen and (max-width: 450px) {
 					margin: 0;
 				}
 			}

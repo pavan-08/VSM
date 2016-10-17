@@ -10,8 +10,8 @@ include(__DIR__.'/dbconnect.php');
 				return;
 			}
 			if(isset($_POST['username']) && isset($_POST['password'])) {
-				$username = $_POST['username'];
-				$password = $_POST['password'];
+				$username = $this->test_input($_POST['username']);
+				$password = $this->test_input($_POST['password']);
 				$sqlp = "SELECT `username`, `password` FROM user WHERE `username`=\"$username\"";
 				$sqls = "SELECT `email`, `password` FROM user WHERE `email`=\"$username\"";
 				$result = mysqli_query($this->conn, $sqlp);
@@ -39,6 +39,13 @@ include(__DIR__.'/dbconnect.php');
 				}
 			}
 		}
+
+		private function test_input($data){
+		$data = trim($data);
+        $data = stripslashes($data);
+        $data = htmlspecialchars($data);
+        return $data;
+	}
 	}
 
 	new Login();

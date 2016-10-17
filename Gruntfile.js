@@ -32,7 +32,8 @@ module.exports = function(grunt){
                     'js/minified/game.min.js'       : 'js/game.js',
                     'js/minified/dashboard.min.js'  : 'js/dashboard.js',
                     'js/minified/leaderboard.min.js': 'js/leaderboard.js',
-                    'js/minified/myshares.min.js'   : 'js/myshares.js'
+                    'js/minified/myshares.min.js'   : 'js/myshares.js',
+                    'js/minified/modal.min.js'      : 'js/modal.js'
                 }
             }
         },

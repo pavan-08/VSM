@@ -5,6 +5,9 @@ class UserConfig extends DBConnect {
 		parent::__construct();
 		$this->user = NULL;
 		$this->loggedIn = false;
+		if (session_status() == PHP_SESSION_NONE) {
+		    session_start();
+		}
 		if(isset($_SESSION['uid']) && isset($_SESSION['pass'])) {
 			$username = $_SESSION['uid'];
 			$password = $_SESSION['pass'];
