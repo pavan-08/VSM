@@ -1,21 +1,24 @@
-<form name="signup">
-            First name:<br>
+<form name="signup" method="post">
+            <h2>Sign Up</h2>
+            <h5>* are required fields</h5>
+            First name*:<br>
             <input type="text" name="fname" required><br>
-            Last name:<br>
+            Last name*:<br>
             <input type="text" name="lname" required><br>
-            Email-id:<br>
-            <input type="text" name="eid" required><br>
-            Username:<br>
+            Email-id*:<br>
+            <input type="email" name="eid" required><br>
+            Username*:<br>
             <input type="text" name="uname" required><br>
-            Password:<br>
+            Password*:<br>
             <input type="password" name="pass" required><br>
-            Re-enter Password:<br>
-            <input type="password" name="cpass" reuired><br>
-            Select Gender:<br>
+            Re-enter Password*:<br>
+            <input type="password" name="cpass" required><br>
+            Select Gender*:<br>
             <input type="radio" name="gender" value="male" checked>Male<br>
             <input type="radio" name="gender" value="female">Female<br>
             <input type="radio" name="gender" value="other">Other<br>
-            Date of Birth:<br>
+            Date of Birth*:<br>
             <input type="date" name="bday" required><br>
-            <input type="submit">	
+            <input type="submit" value="Sign Up" name="submit-signup"/>	
+            <p class="err"><?=$error?></p>
 </form>

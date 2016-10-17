@@ -26,7 +26,7 @@ header {
 		float: right;
 		@media screen and (max-width: 900px) {
 			float: none;
-			min-height: 40px;
+			min-height: 45px;
 		}
 		span {
 			float: left;
@@ -42,6 +42,11 @@ header {
 					display: none;
 				}
 			}
+			input {
+				@media screen and (max-width: 480px) {
+					width: 88%;
+				}
+			}
 			button{
 				border: 1px solid white;
 				background-color: transparent;
@@ -53,12 +58,9 @@ header {
 				}
 				@media screen and (max-width: 480px) {
 					margin: 5px 0;
+					width: 88%;
+					padding: 5px 0;
 				}
-			}
-
-			.err {
-				color: red;
-				margin: 0;
 			}
 		}
 	}
