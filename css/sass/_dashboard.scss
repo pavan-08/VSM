@@ -1,4 +1,4 @@
-.companies {
+.companies, .myshares {
 	table {
 		@extend .translucent;
 		margin: 2% auto;
@@ -34,7 +34,7 @@
 					font-weight: bold;
 					font-size: 1.1em;
 				}
-				&.buy_shares {
+				&.buy_shares, &.sell_shares {
 					padding: 5px 0;
 					transition: all 0.5s;
 					input {
