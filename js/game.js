@@ -47,7 +47,7 @@ function loadviaAJAX(section) {
         case 'My Shares':
             file = '../templates/myshares.html';
             document.title = "My Shares | VSM";
-            script = ['../js/minified/myshares.min.js'];
+            script = ['../js/minified/myshares.min.js', '../js/minified/modal.min.js'];
             break;
         case 'Leaderboard':
             file = '../templates/leaderboard.html';
@@ -94,6 +94,12 @@ $(document).ready(function () {
    });
    $('header .nav-bar ul li').on('click', function() {
             if(!$(this).hasClass('selected-nav')) {
+                if(typeof(refreshCompanies) !== "undefined") {
+                    clearInterval(refreshCompanies);
+                }
+                if(typeof(refreshShares) !== "undefined") {
+                    clearInterval(refreshShares);
+                }
                 $('header .nav-bar ul li').removeClass('selected-nav');
                 $(this).addClass('selected-nav');
                 loadviaAJAX($(this).find('p').find('span.2').html());

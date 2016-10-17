@@ -9,6 +9,10 @@ function loadProfile() {
 		})
 }
 
+function logoutEvent() {
+	location.assign("../classes/logout.php");
+}
+
 $(document).ready(function() {
 	$('header .login-nav span .button').click(function() {
 		var uname = $('#login-user');
@@ -30,7 +34,5 @@ $(document).ready(function() {
 			$('header .login-nav span .err').css('display', 'inline-block');
 		}
 	});
-	$('header .nav-bar #logout').click(function() {
-		location.assign("../classes/logout.php");
-	});
+	$('header .nav-bar #logout').click(logoutEvent);
 });
