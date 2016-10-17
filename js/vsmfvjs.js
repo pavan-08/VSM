@@ -1,8 +1,8 @@
 
     function checkemail(){
         var mail=document.forms["signup"]["eid"];
-        var re =/^(([^&lt;&gt;()\[\]\.,;:\s@\"]+(\.[^&lt;&gt;()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^&lt;&gt;()[\]\.,;:\s@\"]+\.)+[^&lt;&gt;()[\]\.,;:\s@\"]{2,})$/i;
-        if(re.test(mail.value))
+        var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        if(!re.test(mail.value))
                 mail.setCustomValidity("Invalid Email id");
         else
                 mail.setCustomValidity("");
@@ -17,7 +17,7 @@
                 pw.setCustomValidity("Password should contain atleast one digit");
         else if(pw.value.search(/[A-Z]/) == -1) 
                 pw.setCustomValidity("Password should contain atleast one capital letter");
-        else if(pw.value.search(/[\!\@\#\$\%\^\&amp;\*\(\)\_\+]/) == -1) 
+        else if(pw.value.search(/[\!\@\#\$\%\^\&\*\(\)\_\+]/) == -1) 
                 pw.setCustomValidity("Password should contain atleast one special character");
         else
                 pw.setCustomValidity("");
