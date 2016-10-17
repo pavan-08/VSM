@@ -12,3 +12,4 @@
 	?>
 	<script type="text/javascript" src="js/minified/footer.min.js"></script>
 	<script type="text/javascript" src="js/minified/header.min.js"></script>
+	<script type="text/javascript" src="js/minified/vsmfvjs.min.js"></script>
