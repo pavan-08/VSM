@@ -6,13 +6,13 @@
             Last name*:<br>
             <input type="text" name="lname" required><br>
             Email-id*:<br>
-            <input type="email" name="eid" required><br>
+            <input type="email" name="eid" onblur="checkemail()" required><br>
             Username*:<br>
-            <input type="text" name="uname" required><br>
+            <input type="text" name="uname" onblur="checkusername()" required><br>
             Password*:<br>
-            <input type="password" name="pass" required><br>
+            <input type="password" name="pass" onblur="checkpass()" required><br>
             Re-enter Password*:<br>
-            <input type="password" name="cpass" required><br>
+            <input type="password" name="cpass" onblur="confirmpass()" required><br>
             Select Gender*:<br>
             <input type="radio" name="gender" value="male" checked>Male<br>
             <input type="radio" name="gender" value="female">Female<br>
