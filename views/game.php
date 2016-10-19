@@ -34,5 +34,7 @@ if(!isset($_SESSION['uid']) || !isset($_SESSION['pass'])) {
 	<script type="text/javascript" src="../js/minified/footer.min.js"></script>
 	<script type="text/javascript" src="../js/minified/header.min.js"></script>
 	<script type="text/javascript" src="../js/minified/game.min.js"></script>	
+	<script type="text/javascript" src="../js/googlecharts.js"></script>	
+	<script type="text/javascript" src="../js/jquery.pause.js"></script>	
 	</body>
 </html>

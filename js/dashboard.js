@@ -1,4 +1,4 @@
-var refreshCompanies;
+var refreshCompanies, refreshEvents, refreshGraphs;
 
 function registerEvents() {
 	$('.companies table tbody tr td.buy_shares span').click( function() {
@@ -48,8 +48,104 @@ function loadCompanies() {
     xhr.send();
 }
 
-$(document).ready(function() {
-	loadCompanies();
-	refreshCompanies = setInterval(loadCompanies, 30000);
+function loadEvents() {
+	var file = "../classes/getEvents.php";
+	var xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function() {
+        if(xhr.readyState == 4 && xhr.status == 200) {
+            $('.events').html(xhr.responseText);
+            footerpos();
+        }
+    };
+    xhr.open('GET',file,true);
+    xhr.send();
+}
 
+function loadGraphs() {
+	var file = "../classes/getGraphs.php";
+	var xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function() {
+        if(xhr.readyState == 4 && xhr.status == 200) {
+        	$('.graphs').empty();
+        	var data = JSON.parse(xhr.responseText);
+        	var container;
+
+        	data.forEach(function(item, index) {
+        		container = $(document.createElement('div'));
+        		container.addClass('graph-container');
+		   		if($(window).width() <= 500) {
+		   			container.width($(window).width() * 0.9); 
+				} else if($(window).width() <= 700) {
+		   			container.width($(window).width() * 0.5); 
+				} else {
+					container.width($(window).width() * 0.25); 	
+				}
+        		$('.graphs').append(container);
+        		google.charts.load('current', {packages: ['corechart']});
+   				google.charts.setOnLoadCallback(function() {
+   					// Define the chart to be drawn.
+				    var plot = new google.visualization.arrayToDataTable(item.points);
+				    var options = {
+			          title: item.name,
+			          titleTextStyle: {
+						    color: 'white'
+						},
+					  colors: ['white'],
+			          backgroundColor: 'transparent',
+			          legend:{position: 'none'},
+			          smoothLine: true,
+			          hAxis: {
+							    textStyle:{color: '#FFF'}
+							},
+					  vAxis: {
+							    textStyle:{color: '#FFF'}
+							}
+			        };
+				    // Instantiate and draw the chart.
+				    var chart = new google.visualization.AreaChart(document.getElementsByClassName('graphs')[0].childNodes[index]);
+				    chart.draw(plot, options);
+				    if(index == data.length - 1) {
+				    	
+				    	console.log($('.graph-container').width() * data.length);
+				    	$('.graphs').width($('.graph-container').width() * data.length);
+				    }
+   				});
+				
+        	});
+            //$('.events').html(xhr.responseText);
+            footerpos();
+        }
+    };
+    xhr.open('GET',file,true);
+    xhr.send();
+}
+
+$(document).ready(function() {
+	$('.graphs-container').width($(window).width());
+	$(window).resize(function() {
+		$('.graphs-container').width($(window).width());
+	});
+	function loop() {
+        
+        var offset = $('.graphs').width();
+        $('.graphs').animate ({
+            left: -offset,
+        }, 30000, 'linear', function() {
+        	loadGraphs();
+        	$('.graphs').css({right:'-100%', left: ''});
+            loop();
+        });
+    }
+    $('.graphs').hover(function() {
+	  $('.graphs').pause();
+	}, function() {
+	  $('.graphs').resume();
+	})
+	loadCompanies();
+	loadEvents();
+	loadGraphs();
+	refreshCompanies = setInterval(loadCompanies, 30000);
+	refreshEvents    = setInterval(loadEvents, 30000);
+	/*refreshGraphs    = setInterval(loadGraphs, 10000);*/
+	setTimeout(loop, 1000);
 });

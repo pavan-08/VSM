@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 17, 2016 at 11:56 PM
+-- Generation Time: Oct 18, 2016 at 04:56 AM
 -- Server version: 10.1.16-MariaDB
 -- PHP Version: 7.0.9
 
@@ -93,6 +93,7 @@ BEGIN
         END IF;
         UPDATE `company` SET `current_price`=c_price, `day_high`=c_high, `day_low`=c_low WHERE `cid`=coid;
         INSERT INTO `events`(`cid`, `message`, `value_difference`) VALUES(coid, msg, val);
+        INSERT INTO `graph`(`cid`, `share_value`) VALUES(coid, c_price);
     COMMIT;
 END$$
 
@@ -203,7 +204,7 @@ INSERT INTO `company` (`cid`, `name`, `logo`, `buy_factor`, `sell_factor`, `day_
 (29, 'Twitter', '', 0.39999998, 0.01000000, 212.36, 310.20, 309.67, 309.67),
 (30, 'Microsoft', '', 0.40000001, 0.00000000, 315.35, 315.35, 315.35, 315.35),
 (31, 'Walmart', '', 0.30000001, 0.10000000, 105.00, 194.34, 105.00, 105.00),
-(32, 'Stratton Oakmont', '', 0.30000001, 0.11000001, 20.23, 100.99, 73.00, 73.00);
+(32, 'Stratton Oakmont', '', 0.30000001, 0.11000001, 20.23, 100.99, 73.00, 73.30);
 
 -- --------------------------------------------------------
 
@@ -249,7 +250,8 @@ INSERT INTO `graph` (`cid`, `share_value`, `timestamp`) VALUES
 (1, 373.06, '2016-10-17 21:28:11'),
 (1, 373.06, '2016-10-17 21:29:08'),
 (1, 373.06, '2016-10-17 21:29:20'),
-(1, 372.61, '2016-10-17 21:29:40');
+(1, 372.61, '2016-10-17 21:29:40'),
+(32, 73.30, '2016-10-18 02:53:29');
 
 -- --------------------------------------------------------
 
@@ -288,7 +290,8 @@ INSERT INTO `transactions` (`tid`, `count`, `uid`, `cid`, `bought_at`, `timestam
 (4, 5, 12, 3, 692.76, '2016-10-17 19:33:18'),
 (5, 100, 12, 27, 47.32, '2016-10-17 19:34:04'),
 (6, 100, 1, 2, 914.45, '2016-10-17 19:48:18'),
-(8, 100, 1, 1, 372.26, '2016-10-17 21:28:11');
+(8, 100, 1, 1, 372.26, '2016-10-17 21:28:11'),
+(9, 1000, 1, 32, 73.00, '2016-10-18 02:53:29');
 
 -- --------------------------------------------------------
 
@@ -314,7 +317,7 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`uid`, `fname`, `lname`, `username`, `password`, `email`, `money`, `gender`, `DOB`, `premium`) VALUES
-(1, 'Pavan', 'Chhatpar', 'pavan08', '81dc9bdb52d04dc20036dbd8313ed055', 'pavanchhatpar@gmail.com', 411236.38, 'M', '1996-11-08', 0),
+(1, 'Pavan', 'Chhatpar', 'pavan08', '81dc9bdb52d04dc20036dbd8313ed055', 'pavanchhatpar@gmail.com', 338236.38, 'M', '1996-11-08', 0),
 (2, 'Prashant', 'Dombale', 'drashantpombale', '827ccb0eea8a706c4c34a16891f84e7b', 'prashant.dombale@ves.ac.in', 500000.00, 'm', '1996-07-26', 0),
 (12, 'Pavan', 'Chhatpar', 'pavan008', '81dc9bdb52d04dc20036dbd8313ed055', 'pavan.chhatpar@ves.ac.in', 111199.70, 'm', '1996-11-08', 0),
 (13, 'Pavan', 'Chhatpar', 'p1', '217b5919c5d9b4a96944a3fdb8a619ed', 'pavan@ves.ac.in', 500000.00, 'm', '1996-11-08', 0);
@@ -401,7 +404,7 @@ ALTER TABLE `events`
 -- AUTO_INCREMENT for table `transactions`
 --
 ALTER TABLE `transactions`
-  MODIFY `tid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `tid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 --
 -- AUTO_INCREMENT for table `user`
 --

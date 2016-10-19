@@ -34,7 +34,8 @@ module.exports = function(grunt){
                     'js/minified/leaderboard.min.js': 'js/leaderboard.js',
                     'js/minified/myshares.min.js'   : 'js/myshares.js',
                     'js/minified/modal.min.js'      : 'js/modal.js',
-                    'js/minified/vsmfvjs.min.js'    : 'js/vsmfvjs.js'
+                    'js/minified/vsmfvjs.min.js'    : 'js/vsmfvjs.js',
+                    'js/minified/chart.bundle.min.js'    : 'js/Chart.bundle.js'
                 }
             }
         },
