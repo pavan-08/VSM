@@ -31,11 +31,11 @@ class GetCompanies extends DBConnect {
 					<?php
 						if($row['current_price'] - $row['opening_price'] < 0) {
 							?>
-							<td class="low"><i class="fa fa-caret-down" aria-hidden="true"></i><?=number_format(round($row['current_price'] - $row['opening_price'], 2), 2)?></td>
+							<td class="low"><i class="fa fa-caret-down" aria-hidden="true"></i> <?=number_format(round($row['current_price'] - $row['opening_price'], 2), 2)?></td>
 							<?php
 						} else {
 							?>
-							<td class="high"><i class="fa fa-caret-up" aria-hidden="true"></i>+<?=number_format(round($row['current_price'] - $row['opening_price'], 2), 2)?></td>
+							<td class="high"><i class="fa fa-caret-up" aria-hidden="true"></i> +<?=number_format(round($row['current_price'] - $row['opening_price'], 2), 2)?></td>
 							<?php
 						}
 					?>

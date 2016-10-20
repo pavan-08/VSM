@@ -100,6 +100,15 @@ $(document).ready(function () {
                 if(typeof(refreshShares) !== "undefined") {
                     clearInterval(refreshShares);
                 }
+                if(typeof(refreshEvents) !== "undefined") {
+                    clearInterval(refreshEvents);
+                }
+                if(typeof(refreshGraphs) !== "undefined") {
+                    clearInterval(refreshGraphs);
+                }
+                if(typeof(refreshLeaderboard) !== "undefined") {
+                    clearInterval(refreshLeaderboard);
+                }
                 $('header .nav-bar ul li').removeClass('selected-nav');
                 $(this).addClass('selected-nav');
                 loadviaAJAX($(this).find('p').find('span.2').html());

@@ -45,3 +45,32 @@ window.onclick = function(event) {
         modalf.style.display = "none";
     }
 };
+
+// Get the modal
+var modale = document.querySelector('.modal-form');
+
+// Get the <span> element that closes the modal
+var spane = document.querySelector(".modal-form .modal-content .modal-header .close");
+
+if(modale != undefined && modale != null && spane != undefined && modale != undefined) {
+    // Open the modal
+    function showModalForm() {
+        modale.style.display = "block";
+    }
+
+    // When the user clicks on <span> (x), close the modal
+    spane.onclick = function() {
+        modale.style.display = "none";
+    };
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+        if (event.target == modale) {
+            modale.style.display = "none";
+        }
+    };
+
+    $('.modal-form .modal-body button').click(function() {
+        goPremium($(this).parent().find('input[name="license"]'));
+    });
+}

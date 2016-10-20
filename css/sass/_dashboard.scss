@@ -1,63 +1,94 @@
-.companies, .myshares {
+.companies, .myshares, .leaderboard {
 	table {
-		@extend .translucent;
-		margin: 2% auto;
-		width: 60%;
-		color: white;
-		text-align: center;
-		@media screen and (max-width: 900px) {
-			width: 94%;
-		}
-		@media screen and (max-width: 500px) {
-			font-size: 0.8em;
-		}
-		@media screen and (max-width: 400px) {
-			font-size: 0.6em;
-		}
-		tr {
-			td, th {
-				padding: 10px 0;
-			}
-			th {
-				background-color: rgba(0,0,0,0.3);
-			}
-			td {
-				&.high {
-					text-align: left;
-					color: #64DD17;
-					font-weight: bold;
-					font-size: 1.1em;
-				}
-				&.low {
-					text-align: left;
-					color: #F44336;
-					font-weight: bold;
-					font-size: 1.1em;
-				}
-				&.buy_shares, &.sell_shares {
-					padding: 5px 0;
-					transition: all 0.5s;
-					input {
-						transition: all 0.5s;
-					}
-					span {
-						background-color: white;
-						color: $nav-bar-color;
-						border: 1px solid white;
-						font-weight: bold;
-						transition: all 0.5s;
-						padding: 5px;
-						&:hover {
-							cursor: pointer;
-							background-color: transparent;
-							color: white;
-						}
-					}
-				}
-			}
-		}
-	}
+    @extend .trans-table;
+  }
 }
+
+.companies {
+  table {
+    margin: 2%;
+  }
+}
+
+.events {
+  float: right;
+  max-height: 300px;
+  overflow-y: scroll;
+  width: 25% !important;
+  margin-right: 2%;
+  margin-top: 2%;
+  font-size: 1.2em !important;
+  &::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  &::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
+    border-radius: 4px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
+  }
+  @media screen and (max-width: 900px) {
+    float: none;
+    margin: 2% auto;
+      margin-bottom: 0;
+      width: 94% !important; 
+  }
+  table {
+    @extend .trans-table;
+    width: 100% !important;
+    tbody{
+      text-align: left;
+      td {
+        padding-left: 10px !important;
+        padding-right: 10px !important;
+        i {
+          font-size: 1.5em;
+        }
+      }
+    }
+  }
+}
+
+.myshares, .leaderboard {
+  table {
+    margin: 2% auto;
+  }
+}
+
+
+.graphs-container{
+  overflow: hidden;
+  .graphs {
+    position: relative;
+    .graph-container{
+      display: inline-block;
+      float: left;
+      text-align:center;
+      .go-premium {
+        background-color: #64DD17;
+        border: 1px solid #64DD17;
+        color: white;
+        margin-top: 40%;
+        transition: all 0.5s;
+        padding: 10px;
+        &:hover {
+          background-color: transparent;
+          cursor: pointer;
+        }
+        button {
+          width: 100%;
+          border: none;
+          background-color: transparent;
+        }
+      }
+    }
+  }
+}
+
 
 
 /* Add Animation */
@@ -72,7 +103,7 @@
 }
 
 /* The Modal (background) */
-.modal-success, .modal-fail, .modal-exchange {
+.modal-success, .modal-fail, .modal-form {
   display: none; /* Hidden by default */
   position: fixed; /* Stay in place */
   z-index: 100; /* Sit on top */
@@ -137,6 +168,31 @@
   .modal-content {
     .modal-header, .modal-footer {
       background-color: #f44336;
+    }
+  }
+}
+
+.modal-form {
+  .modal-content {
+    text-align: center;
+    .modal-header, .modal-footer {
+      background-color: $nav-bar-color;
+    }
+    .modal-body {
+      input, button {
+        padding: 10px;
+      }
+      button {
+        border: 1px solid $nav-bar-color;
+        background-color: $nav-bar-color;
+        transition: all 0.5s;
+        color: white;
+        &:hover {
+          background-color: transparent;
+          color: $nav-bar-color;
+          cursor: pointer;
+        }
+      }
     }
   }
 }
