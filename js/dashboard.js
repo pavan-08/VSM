@@ -34,6 +34,28 @@ function goBuyShares(count) {
 	refreshCompanies = setInterval(loadCompanies, 30000);
 }
 
+function goPremium(key) {
+	if(key.val().trim() !== '') {
+		$.post("../classes/goPremium.php", {'key': key.val().trim()})
+			.done(function(data) {
+				$('.modal-form').css('display',"none");
+				if(data == 1) {
+					showModalSuccess("Congratulation! You are a premium user now!");
+					loadGraphs();
+				} else {
+					showModalFail("Entered key is invalid or duplicate.");
+				}
+			})
+			.fail(function() {
+				showModalFail("Something went wrong! :(");
+			});
+		loadProfile();
+	} else {
+		showModalFail('Please enter a license key');
+	}
+
+}
+
 function loadCompanies() {
 	var file = "../classes/GetCompanies.php";
 	var xhr = new XMLHttpRequest();
@@ -93,7 +115,6 @@ function loadGraphs() {
 					  colors: ['white'],
 			          backgroundColor: 'transparent',
 			          legend:{position: 'none'},
-			          smoothLine: true,
 			          hAxis: {
 							    textStyle:{color: '#FFF'}
 							},
@@ -105,9 +126,21 @@ function loadGraphs() {
 				    var chart = new google.visualization.AreaChart(document.getElementsByClassName('graphs')[0].childNodes[index]);
 				    chart.draw(plot, options);
 				    if(index == data.length - 1) {
-				    	
+				    	if(index == 3) {
+					    	container = $(document.createElement('div'));
+	        				container.addClass('graph-container');
+	        				var gopremium = $(document.createElement('button'));
+	        				gopremium.html('Go Premium for more graphs');
+	        				gopremium.addClass("go-premium");
+	        				gopremium.click(showModalForm);
+	        				container.append(gopremium);
+	        				$('.graphs').append(container);
+	        				$('.graphs').width($('.graph-container').width() * (data.length + 1));
+        				} else {
+        					$('.graphs').width($('.graph-container').width() * data.length);
+        				}
 				    	console.log($('.graph-container').width() * data.length);
-				    	$('.graphs').width($('.graph-container').width() * data.length);
+				    	
 				    }
    				});
 				
@@ -128,9 +161,10 @@ $(document).ready(function() {
 	function loop() {
         
         var offset = $('.graphs').width();
+        var time = 30000*$('.graphs .graph-container').length / 10;
         $('.graphs').animate ({
             left: -offset,
-        }, 30000, 'linear', function() {
+        }, time, 'linear', function() {
         	loadGraphs();
         	$('.graphs').css({right:'-100%', left: ''});
             loop();

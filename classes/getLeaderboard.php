@@ -7,7 +7,7 @@ class Leaderboard extends DBConnect {
 		    session_start();
 		}
 		if(isset($_SESSION['uid']) && isset($_SESSION['pass'])) {
-			$sql = "SELECT `username` FROM `user` ORDER BY `money` DESC";
+			$sql = "SELECT `username` FROM `user` WHERE `uid` > 1 ORDER BY `money` DESC";
 			$result = mysqli_query($this->conn, $sql);
 			?>
 			<table>

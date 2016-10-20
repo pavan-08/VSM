@@ -15,11 +15,27 @@ class UserConfig extends DBConnect {
 			$sqls = "SELECT * FROM `user` WHERE `username`=\"$username\" AND `password`=\"$password\"";
 			$result = mysqli_query($this->conn, $sqlp);
 			if(mysqli_num_rows($result) === 1) {
-				$this->setUser($result);
+				while($row = mysqli_fetch_assoc($result)) {
+					$uid=$row['uid'];
+				}
+				$sqlcheck = "CALL check_premium(\"$uid\")";
+				if(mysqli_query($this->conn, $sqlcheck)) {
+					//echo "here";
+					$result = mysqli_query($this->conn, $sqlp);
+					$this->setUser($result);
+				}
 			} else {
 				$result = mysqli_query($this->conn, $sqls);
 				if(mysqli_num_rows($result) === 1) {
-					$this->setUser($result);	
+					while($row = mysqli_fetch_assoc($result)) {
+						$uid=$row['uid'];
+					}
+					$sqlcheck = "CALL check_premium(\"$uid\")";
+					if(mysqli_query($this->conn, $sqlcheck)) {
+						//echo "here";
+						$result = mysqli_query($this->conn, $sqls);
+						$this->setUser($result);
+					}	
 				}
 			}
 		}

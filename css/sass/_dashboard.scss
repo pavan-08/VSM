@@ -67,20 +67,28 @@
     .graph-container{
       display: inline-block;
       float: left;
+      text-align:center;
+      .go-premium {
+        background-color: #64DD17;
+        border: 1px solid #64DD17;
+        color: white;
+        margin-top: 40%;
+        transition: all 0.5s;
+        padding: 10px;
+        &:hover {
+          background-color: transparent;
+          cursor: pointer;
+        }
+        button {
+          width: 100%;
+          border: none;
+          background-color: transparent;
+        }
+      }
     }
   }
 }
 
-/* Chrome, Safari, Opera */
-@-webkit-keyframes moveleft {
-    from {right: -100%;}
-    to {left: -100%;}
-}
-
-@keyframes moveleft {
-    from {right: -100%;}
-    to {left: -100%;}
-}
 
 
 /* Add Animation */
@@ -95,7 +103,7 @@
 }
 
 /* The Modal (background) */
-.modal-success, .modal-fail, .modal-exchange {
+.modal-success, .modal-fail, .modal-form {
   display: none; /* Hidden by default */
   position: fixed; /* Stay in place */
   z-index: 100; /* Sit on top */
@@ -160,6 +168,31 @@
   .modal-content {
     .modal-header, .modal-footer {
       background-color: #f44336;
+    }
+  }
+}
+
+.modal-form {
+  .modal-content {
+    text-align: center;
+    .modal-header, .modal-footer {
+      background-color: $nav-bar-color;
+    }
+    .modal-body {
+      input, button {
+        padding: 10px;
+      }
+      button {
+        border: 1px solid $nav-bar-color;
+        background-color: $nav-bar-color;
+        transition: all 0.5s;
+        color: white;
+        &:hover {
+          background-color: transparent;
+          color: $nav-bar-color;
+          cursor: pointer;
+        }
+      }
     }
   }
 }

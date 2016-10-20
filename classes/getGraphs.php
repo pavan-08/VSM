@@ -13,7 +13,7 @@ class Graphs extends DBConnect {
 			if($userConfig->user['premium']) {
 				$limit = "";
 			}
-			$sql = "SELECT `cid`, `name` FROM `company` ORDER BY `current_price`-`opening_price` DESC".$limit;
+			$sql = "SELECT `cid`, `name` FROM `company` ORDER BY ABS(`current_price`-`opening_price`) DESC".$limit;
 			$result = mysqli_query($this->conn, $sql);
 			while($row = mysqli_fetch_assoc($result)) {
 				$cid = $row['cid'];
