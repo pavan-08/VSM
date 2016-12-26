@@ -28,8 +28,8 @@ function goSellShares(count) {
 	} else {
 		showModalFail('Please enter a valid count of shares');
 	}
-
 	count.hide();
+
 	loadShares();
 	refreshShares = setInterval(loadShares, 30000);
 }

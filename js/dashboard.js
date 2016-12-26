@@ -139,8 +139,8 @@ function loadGraphs() {
         				} else {
         					$('.graphs').width($('.graph-container').width() * data.length);
         				}
-				    	console.log($('.graph-container').width() * data.length);
-				    	
+				    	//console.log($('.graph-container').width() * data.length);
+				    	$('.graphs-container').width($(window).width());
 				    }
    				});
 				

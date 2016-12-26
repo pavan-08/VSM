@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 20, 2016 at 06:38 PM
+-- Generation Time: Oct 25, 2016 at 06:30 PM
 -- Server version: 10.1.16-MariaDB
 -- PHP Version: 7.0.9
 
@@ -233,14 +233,14 @@ CREATE TABLE `company` (
 --
 
 INSERT INTO `company` (`cid`, `name`, `logo`, `buy_factor`, `sell_factor`, `day_low`, `day_high`, `opening_price`, `current_price`) VALUES
-(1, 'Tata Steel', '', 0.80000001, 0.50000000, 188.30, 376.46, 372.61, 372.61),
-(2, 'L&T', '', 0.30000001, 0.50000000, 914.34, 914.59, 914.34, 914.34),
-(3, 'HDFC', '', 0.30000001, 0.40000004, 404.34, 744.97, 692.76, 692.76),
-(4, 'Infosys', '', 0.10000000, 0.89999998, 147.11, 277.27, 147.19, 147.12),
-(5, 'Apple', '', 0.20000000, 0.07000000, 142.23, 147.76, 144.72, 144.72),
-(6, 'Reliance Infrastructure', '', 0.70000005, 0.33000001, 821.37, 1155.57, 1140.41, 1140.44),
-(7, 'ACC', '', 0.61000001, 0.99999976, 1176.66, 1325.83, 1292.14, 1292.14),
-(8, 'Bharti Airtel', '', 0.30000001, 0.30000001, 676.19, 877.59, 852.91, 852.93),
+(1, 'Tata Steel', '', 0.80000001, 0.50000000, 188.30, 376.92, 372.61, 376.67),
+(2, 'L&T', '', 0.30000001, 0.50000000, 914.34, 914.59, 914.34, 914.38),
+(3, 'HDFC', '', 0.30000001, 0.40000004, 404.34, 744.97, 692.76, 692.82),
+(4, 'Infosys', '', 0.10000000, 0.89999998, 147.04, 277.27, 147.19, 147.04),
+(5, 'Apple', '', 0.20000000, 0.07000000, 142.23, 147.76, 144.72, 144.92),
+(6, 'Reliance Infrastructure', '', 0.70000005, 0.33000001, 821.37, 1155.57, 1140.41, 1140.45),
+(7, 'ACC', '', 0.61000001, 0.99999976, 1176.66, 1325.83, 1292.14, 1292.18),
+(8, 'Bharti Airtel', '', 0.30000001, 0.30000001, 676.19, 877.59, 852.91, 842.43),
 (9, 'Bharat Heavy Electric Ltd', '', 0.30000001, 0.08000000, 209.62, 209.63, 209.62, 209.63),
 (10, 'Cipla', '', 0.39999995, 0.50000000, 224.97, 449.94, 423.06, 423.05),
 (11, 'Google', '', 0.08000000, 0.00000000, 707.41, 711.71, 707.42, 707.42),
@@ -259,7 +259,7 @@ INSERT INTO `company` (`cid`, `name`, `logo`, `buy_factor`, `sell_factor`, `day_
 (24, 'Reliance Industries', '', 0.50000000, 0.00000007, 1031.62, 1091.57, 1091.56, 1091.57),
 (25, 'Maruti Suzuki', '', 0.10000002, 0.09999998, 981.69, 1375.26, 1237.31, 1237.31),
 (26, 'Facebook', '', 0.99000007, 0.80000001, 124.42, 248.84, 223.41, 224.09),
-(27, 'Flipkart', '', 0.99000007, 0.50000000, 2.50, 50.92, 50.92, 50.92),
+(27, 'Flipkart', '', 0.99000007, 0.50000000, 2.50, 51.86, 50.92, 51.36),
 (28, 'Alibaba', '', 0.89999998, 0.50000000, 99.99, 199.98, 164.95, 164.96),
 (29, 'Twitter', '', 0.39999998, 0.10000000, 212.36, 310.20, 309.67, 309.67),
 (30, 'Microsoft', '', 0.40000001, 0.15000001, 315.35, 315.83, 315.35, 315.80),
@@ -287,7 +287,10 @@ INSERT INTO `events` (`eid`, `cid`, `message`, `value_difference`) VALUES
 (1, 5, 'Apple iPhone sales high', 5.50),
 (2, 11, 'Google Pixel launch delayed', -4.30),
 (3, 5, 'Apple sales go low, iPhone 7 rolled back', -3.04),
-(4, 27, 'Flipkart Diwali sales, start off with a bang!', 3.45);
+(4, 27, 'Flipkart Diwali sales, start off with a bang!', 3.45),
+(5, 8, 'Jio gives tough competition to Airtel', -10.50),
+(6, 1, 'Tata steel bought reliance', 2.00),
+(7, 1, 'Tata steel gives out a lot of diwali bonus', 1.50);
 
 -- --------------------------------------------------------
 
@@ -409,7 +412,41 @@ INSERT INTO `graph` (`cid`, `share_value`, `timestamp`) VALUES
 (26, 224.09, '2016-10-20 15:25:09'),
 (21, 757.18, '2016-10-20 15:25:32'),
 (21, 757.22, '2016-10-20 15:25:48'),
-(21, 757.13, '2016-10-20 15:26:10');
+(21, 757.13, '2016-10-20 15:26:10'),
+(27, 50.87, '2016-10-20 18:34:00'),
+(1, 372.11, '2016-10-20 18:34:24'),
+(3, 692.76, '2016-10-20 18:34:48'),
+(2, 914.34, '2016-10-20 18:34:59'),
+(1, 372.91, '2016-10-20 18:38:48'),
+(1, 372.41, '2016-10-20 18:39:06'),
+(1, 373.37, '2016-10-20 18:39:35'),
+(1, 372.77, '2016-10-20 18:39:45'),
+(27, 51.86, '2016-10-20 18:40:23'),
+(8, 842.43, '2016-10-21 09:41:53'),
+(1, 372.85, '2016-10-21 09:45:15'),
+(1, 372.83, '2016-10-21 09:45:35'),
+(27, 51.36, '2016-10-23 17:34:23'),
+(7, 1292.20, '2016-10-24 04:39:05'),
+(3, 692.79, '2016-10-24 04:39:24'),
+(7, 1292.18, '2016-10-24 04:39:50'),
+(1, 374.83, '2016-10-24 04:41:59'),
+(2, 914.37, '2016-10-24 06:09:11'),
+(3, 692.82, '2016-10-24 06:11:04'),
+(5, 144.92, '2016-10-24 06:11:11'),
+(6, 1140.45, '2016-10-24 06:11:26'),
+(9, 209.63, '2016-10-24 06:11:38'),
+(4, 147.12, '2016-10-24 06:11:57'),
+(4, 147.12, '2016-10-24 06:12:19'),
+(4, 147.13, '2016-10-24 06:12:28'),
+(4, 147.04, '2016-10-24 06:12:42'),
+(2, 914.38, '2016-10-24 08:21:16'),
+(1, 375.23, '2016-10-24 08:24:13'),
+(1, 374.98, '2016-10-24 08:25:24'),
+(1, 376.48, '2016-10-24 08:25:33'),
+(1, 376.88, '2016-10-24 08:26:08'),
+(1, 376.92, '2016-10-24 08:27:20'),
+(1, 376.92, '2016-10-24 08:27:38'),
+(1, 376.67, '2016-10-24 08:30:05');
 
 -- --------------------------------------------------------
 
@@ -429,10 +466,10 @@ CREATE TABLE `licensekeys` (
 
 INSERT INTO `licensekeys` (`id`, `uid`, `verified`) VALUES
 ('00F0827D4A', 2, 1),
-('02D9E12E34', 1, 0),
+('02D9E12E34', 12, 1),
 ('04F0AFEEC5', 1, 0),
-('07E11DEF49', 1, 0),
-('09A2944623', 1, 0),
+('07E11DEF49', 16, 1),
+('09A2944623', 15, 1),
 ('0CD949D599', 1, 0),
 ('0E56977116', 1, 0),
 ('0E651059FD', 1, 0),
@@ -549,10 +586,6 @@ CREATE TABLE `transactions` (
 --
 
 INSERT INTO `transactions` (`tid`, `count`, `uid`, `cid`, `bought_at`, `timestamp`) VALUES
-(2, 1000, 12, 1, 371.46, '2016-10-17 19:29:40'),
-(3, 10, 12, 2, 914.45, '2016-10-17 19:32:04'),
-(4, 5, 12, 3, 692.76, '2016-10-17 19:33:18'),
-(5, 100, 12, 27, 47.32, '2016-10-17 19:34:04'),
 (10, 10, 1, 2, 914.48, '2016-10-18 03:04:03'),
 (12, 10, 1, 2, 914.48, '2016-10-19 05:07:26'),
 (13, 100, 1, 2, 914.48, '2016-10-19 11:00:22'),
@@ -560,7 +593,18 @@ INSERT INTO `transactions` (`tid`, `count`, `uid`, `cid`, `bought_at`, `timestam
 (46, 100, 1, 4, 147.11, '2016-10-20 15:18:10'),
 (49, 500, 1, 26, 224.40, '2016-10-20 15:23:55'),
 (50, 50, 1, 21, 757.19, '2016-10-20 15:24:08'),
-(52, 500, 1, 20, 200.28, '2016-10-20 15:24:47');
+(52, 500, 1, 20, 200.28, '2016-10-20 15:24:47'),
+(56, 50, 14, 1, 372.77, '2016-10-21 09:45:15'),
+(57, 80, 15, 7, 1292.14, '2016-10-24 04:39:05'),
+(58, 100, 15, 3, 692.76, '2016-10-24 04:39:24'),
+(59, 100, 12, 2, 914.34, '2016-10-24 06:09:11'),
+(60, 100, 14, 3, 692.79, '2016-10-24 06:11:04'),
+(61, 1000, 14, 5, 144.72, '2016-10-24 06:11:11'),
+(62, 10, 14, 6, 1140.44, '2016-10-24 06:11:26'),
+(63, 10, 14, 9, 209.63, '2016-10-24 06:11:38'),
+(64, 5, 14, 4, 147.12, '2016-10-24 06:11:57'),
+(66, 50, 16, 2, 914.37, '2016-10-24 08:21:16'),
+(69, 40, 16, 1, 376.88, '2016-10-24 08:27:20');
 
 -- --------------------------------------------------------
 
@@ -588,20 +632,13 @@ CREATE TABLE `user` (
 INSERT INTO `user` (`uid`, `fname`, `lname`, `username`, `password`, `email`, `money`, `gender`, `DOB`, `premium`) VALUES
 (1, 'Pavan', 'Chhatpar', 'admin', '81dc9bdb52d04dc20036dbd8313ed055', 'pavanchhatpar@gmail.com', 640301.31, 'M', '1996-11-08', 0),
 (2, 'Prashant', 'Dombale', 'drashantpombale', '827ccb0eea8a706c4c34a16891f84e7b', 'prashant.dombale@ves.ac.in', 500000.00, 'm', '1996-07-26', 1),
-(12, 'Pavan', 'Chhatpar', 'pavan008', '81dc9bdb52d04dc20036dbd8313ed055', 'pavan.chhatpar@ves.ac.in', 111199.70, 'm', '1996-11-08', 0),
+(12, 'Pavan', 'Chhatpar', 'pavan008', '81dc9bdb52d04dc20036dbd8313ed055', 'pavan.chhatpar@ves.ac.in', 413016.91, 'm', '1996-11-08', 1),
 (13, 'Pavan', 'Chhatpar', 'p1', '217b5919c5d9b4a96944a3fdb8a619ed', 'pavan@ves.ac.in', 500000.00, 'm', '1996-11-08', 0),
-(14, 'Hacker', 'Hacker', 'hacker', '64ae1a7bac6c82e5092e17707e780522', 'hacker@hacker.com', 500000.00, 'm', '1996-11-08', 0);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `watchlist`
---
-
-CREATE TABLE `watchlist` (
-  `uid` int(11) NOT NULL,
-  `cid` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+(14, 'Hacker', 'Hacker', 'hacker', '64ae1a7bac6c82e5092e17707e780522', 'hacker@hacker.com', 272509.28, 'm', '1996-11-08', 0),
+(15, 'sashwin', 'adnani', 'sashwin', '254c680440f389b090507fe9f04ff2c2', 'sashwin.adnani@ves.ac.in', 430730.00, 'm', '1997-03-09', 1),
+(16, 'Juhi', 'Bhagtani', 'jsb', 'dc942d84ef6ada86e2ae8ba3d1898ba7', 'juhi.bhagtani@ves.ac.in', 454283.50, 'f', '1997-01-10', 1),
+(17, 'Prashant', 'Dombale', 'ddaddawd', '70b4269b412a8af42b1f7b0d26eceff2', 'prashant.dombale@gmail.com', 500000.00, 'm', '2016-10-22', 0),
+(22, 'hardik', 'patil', 'kirito', '7f75006581f3342295d496b61d6b0e9c', 'hadik.patil@ves.ac.in', 500420.09, 'm', '2014-05-18', 0);
 
 --
 -- Indexes for dumped tables
@@ -650,13 +687,6 @@ ALTER TABLE `user`
   ADD UNIQUE KEY `email` (`email`);
 
 --
--- Indexes for table `watchlist`
---
-ALTER TABLE `watchlist`
-  ADD KEY `watch_user_fk` (`uid`),
-  ADD KEY `watch_company_fk` (`cid`);
-
---
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -669,17 +699,17 @@ ALTER TABLE `company`
 -- AUTO_INCREMENT for table `events`
 --
 ALTER TABLE `events`
-  MODIFY `eid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `eid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 --
 -- AUTO_INCREMENT for table `transactions`
 --
 ALTER TABLE `transactions`
-  MODIFY `tid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
+  MODIFY `tid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=70;
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `uid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `uid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 --
 -- Constraints for dumped tables
 --
@@ -708,13 +738,6 @@ ALTER TABLE `licensekeys`
 ALTER TABLE `transactions`
   ADD CONSTRAINT `transaction_company_fk` FOREIGN KEY (`cid`) REFERENCES `company` (`cid`),
   ADD CONSTRAINT `transaction_user_fk` FOREIGN KEY (`uid`) REFERENCES `user` (`uid`);
-
---
--- Constraints for table `watchlist`
---
-ALTER TABLE `watchlist`
-  ADD CONSTRAINT `watch_company_fk` FOREIGN KEY (`cid`) REFERENCES `company` (`cid`),
-  ADD CONSTRAINT `watch_user_fk` FOREIGN KEY (`uid`) REFERENCES `user` (`uid`);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
